@@ -3,14 +3,14 @@ from log import StartLogging
 from events import EventHandler
 from handlers import router
 
-from aiogram import Bot, Dispatcher, Router
+from aiogram import Bot, Dispatcher
 
 from aiogram.client.default import DefaultBotProperties
 from aiogram.enums import ParseMode
 
 class BotHandler(EventHandler):
     def __init__(self):
-        StartLogging("file")
+        StartLogging(settings.LOGGING_MODE.get_secret_value())
 
         bot = Bot(settings.BOT_TOKEN.get_secret_value(), default=DefaultBotProperties(parse_mode=ParseMode.HTML))
         dispatcher = Dispatcher()

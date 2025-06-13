@@ -5,11 +5,11 @@ import datetime
 import os, sys
 
 class StartLogging():
-    def __init__(self, Mode: str = "stdout"):
+    def __init__(self, Mode: str = "console"):
         LoggingStartTime = datetime.datetime.now()
         formatted_time = LoggingStartTime.strftime("%Y-%m-%d_%H-%M-%S")
 
-        if Mode == "stdout":
+        if Mode == "console":
             logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
         
         if Mode == "file":
